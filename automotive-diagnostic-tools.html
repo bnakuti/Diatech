@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Automotive Diagnostic Tools - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html { scroll-behavior: smooth; }
+html, body { min-height: 100%; }
+
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  color: #1f2a37;
+}
+
+/* HEADER */
+header {
+  position: relative;
+  height: 300px;
+  border-radius: 0 0 18px 18px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: url("images/automotive-tools-banner.png") center/cover no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Add a pseudo-element for the gradient overlay */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0));
+  border-radius: 0 0 18px 18px;
+  pointer-events: none; /* ensures text is clickable */
+}
+
+/* Keep your hero-overlay styling intact */
+.hero-overlay {
+  position: relative; /* Make it above the gradient */
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 15px;
+}
+
+.hero-overlay h1 {
+  color: #fff;
+  font-size: 36px;
+  margin: 0;
+  font-weight: 800;
+}
+
+.hero-overlay p {
+  color: rgba(255,255,255,0.9);
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.hero-subtext {
+  color: rgba(255,255,255,0.85);
+  margin-top: 12px;
+  font-size: 16px;
+  max-width: 700px;
+}
+
+/* NAV */
+nav {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 0;
+  gap: 30px;
+}
+
+nav li {
+  font-weight: 600;
+  color: #0e2a47;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+nav li:hover {
+  background: rgba(14,42,71,0.1);
+  color: #ff6b35;
+  transform: translateY(-2px);
+}
+
+nav a { color: #0e2a47; }
+nav a:hover { color: #ff6b35; }
+
+/* MAIN & TOOL GRID */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 50px 20px;
+
+  /* ✅ Background similar to home page */
+  background-image: linear-gradient(rgba(255,255,255,0.75), rgba(255,255,255,0.75)),
+                    url("images/A_digital_photograph_showcases_a_diagnostic_tools_.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 18px;
+  /* Stretch background fully */
+    background: url('images/automotive-tools-bg.png') center top / cover no-repeat;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+/* CARD STYLING */
+.tool-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  transition: 0.3s ease;
+  border-top: 4px solid #ff6b35;
+}
+
+.tool-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+.tool-card h3 {
+  margin-top: 0;
+  color: #0e2a47;
+  font-size: 20px;
+}
+
+.tool-card p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  padding: 45px;
+  padding-bottom: 25px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 16px 45px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 15px;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-4px);
+  opacity: 0.95;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .tools-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .hero-overlay {
+    padding-left: 25px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.site-footer {
+  width: 98%;        /* ✅ Fixed - matches page width */
+  margin-top: -15px;
+
+  background: linear-gradient(135deg, #0e2a47, #081d33);
+  color: white;
+
+  text-align: center;
+  padding:18px 15px;
+  font-size: 14px;
+
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero-overlay">
+    <h1>Automotive Computer Diagnostic Tools</h1>
+    <p>Advanced Digital Diagnostics for Light & Heavy Vehicles.</p>
+    <p class="hero-subtext"> DIATECH LIMITED offers modern computerized tools for garages, fleets and heavy machinery.<br>
+		We also troubleshoot, programme, flash, generate and diagnose engines and transmission systems.
+	</p>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <!-- ✅ Go to Services section on Home page -->
+    <li><a href="index.html#services">Services</a></li>
+
+    <!-- ✅ Go to Contact section on Home page -->
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+ <main style="
+    background: url('images/automotive-tools-bg.png') center/cover no-repeat;
+    background-size: cover;
+    padding: 60px 220px;
+">
+
+  <!-- GRID SECTION -->
+  <div class="tools-grid" style="
+      padding: 10px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0); /* Transparent so cards float over background */
+  ">
+  
+    <div class="tool-card">
+      <h3>OBD2 Scanners (Light Vehicles)</h3>
+      <p>Quick and accurate diagnostics for engines, sensors, transmission faults, and emissions systems.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>CAT ET Diagnostic Adapter</h3>
+      <p>Official Caterpillar diagnostic interface for heavy equipment programming and troubleshooting.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>Perkins EST Diagnostic Kit</h3>
+      <p>Complete Perkins engine diagnostics for fault detection, service resets, and performance tuning.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>Scania VCI Diagnostic Tool</h3>
+      <p>Advanced diagnostic scanner for Scania trucks, buses, and industrial engines.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>Heavy Duty Truck Scanners</h3>
+      <p>X003, X003Plus, Supports J1939, J1708 and multi-brand truck diagnostics for commercial fleets.</p>
+    </div>
+
+    <div class="tool-card">
+      <h3>Full Diagnostic Kits</h3>
+      <p>Comprehensive multi-brand kits equipped with rugged tablets, adapters and complete software packages.</p>
+    </div>
+  </div>
+
+
+<!-- CTA -->
+<div class="cta-section" style="
+  margin-top: 5px;
+  padding: 50px;
+  text-align: center;
+
+  /* ✅ Light Glass Tint */
+  background: rgba(255, 255, 255, 0.10);
+
+  /* ✅ Frosted Glass Blur */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+
+  /* ✅ Clean White Border */
+  border: 2px solid rgba(255,255,255,0.55);
+
+  /* ✅ Rounded Modern Shape */
+  border-radius: 24px;
+
+  /* ✅ Subtle Depth */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.20);
+">
+
+  <h3 style="
+    color: #ffb703;
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.65);
+  ">
+    Need Automotive Diagnostic Tools?
+  </h3>
+
+  <p style="
+    color: rgba(255,255,255,0.95);
+    font-size: 18px;
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.7;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.55);
+  ">
+    We can recommend the best solution depending on your vehicle type and workshop needs.
+  </p>
+
+  <a href="request-quote.html" class="cta-button" style="
+    margin-top: 28px;
+    display: inline-block;
+    box-shadow: 0 10px 25px rgba(255,107,53,0.45);
+  ">
+    Request a Quote →
+  </a>
+
+</div>
+
+</main>
+<footer class="site-footer">
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of automotive diagnostic tools and related equipment. 
+    We are <strong>not</strong> authorized dealers, distributors, or representatives of any vehicle manufacturer, OEM, or brand 
+    (including but not limited to Caterpillar, Perkins, Scania, or any other trademark) unless expressly stated in writing. 
+    All trademarks, brand names, and logos referenced on this page are the property of their respective owners and are used 
+    strictly for identification and compatibility purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks or diagnostic software. Nothing herein shall be construed as 
+    creating any agency, partnership, endorsement, or affiliation.
+  </p>
+</footer>
+
+</body>
+</html>

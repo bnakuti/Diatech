@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Computers & Accessories - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("images/network-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #1f2a37;
+}
+
+header {
+  background: #0e2a47;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  margin: 0;
+  background: rgba(255,255,255,0.95);
+}
+
+nav a { 
+  color: #0e2a47; 
+  font-weight: 600; 
+  padding: 12px 20px; 
+  text-decoration: none; 
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover { 
+  color: #ff6b35; 
+  background: rgba(14,42,71,0.1);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 34px;
+  color: #0e2a47;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+/* ITEM GRID */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* ITEM CARD */
+.item-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  border-top: 4px solid #ff6b35;
+  transition: 0.3s ease;
+}
+
+.item-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
+}
+
+.item-card h3 {
+  color: #0e2a47;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.item-card p {
+  color: #444;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  margin-top: 70px;
+  padding: 45px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 20px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 16px 45px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+  box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255,107,53,0.6);
+}
+
+.item-card img {
+  width: 70px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  .hero-content { padding: 30px 20px; }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>💻 Computers & Accessories</h1>
+  <p>We supply and support a wide range of branded computers, peripherals, and accessories 
+    for businesses, institutions, and personal use.</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="office-solutions.html">💼 Office Solutions</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  
+  <!-- ITEMS GRID -->
+ <div class="items-grid">
+
+  <!-- PRODUCT 1 -->
+  <div class="item-card">
+    <img src="images/laptop.png" alt="Laptop">
+    <h3>Business Laptops</h3>
+    <p>
+      HP, Dell, Lenovo laptops for office productivity, students, and corporate use.
+    </p>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="item-card">
+    <img src="images/desktop.png" alt="Desktop">
+    <h3>Desktop Computers</h3>
+    <p>
+      Complete desktop setups for offices, reception areas, and institutional labs.
+    </p>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="item-card">
+    <img src="images/monitor.png" alt="Monitor">
+    <h3>Monitors & Displays</h3>
+    <p>
+      High-quality HD and 4K monitors for business workstations and conferencing.
+    </p>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="item-card">
+    <img src="images/printer.png" alt="Printer">
+    <h3>Printers & Scanners</h3>
+    <p>
+      Epson, HP, Canon office printers, scanners, photocopiers, and support services.
+    </p>
+  </div>
+
+  <!-- PRODUCT 5 -->
+  <div class="item-card">
+    <img src="images/ups.png" alt="UPS">
+    <h3>UPS & Power Backup</h3>
+    <p>
+      Reliable UPS systems to protect devices from power failure and surges.
+    </p>
+  </div>
+
+  <!-- PRODUCT 6 -->
+  <div class="item-card">
+    <img src="images/accessories.png" alt="Accessories">
+    <h3>Keyboards, Mice & Accessories</h3>
+    <p>
+      Wireless keyboards, mouse, webcams, headsets, adapters, and office peripherals.
+    </p>
+  </div>
+
+</div>
+
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3 style="color:#0e2a47;">Need Computers or Accessories for Your Office?</h3>
+    <p style="color:#555; font-size:16px;">
+      Request a quotation today and we will recommend the best devices for your needs.
+    </p>
+    <a href="request-quote.html" class="cta-button">Request a Quote →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+</body>
+</html>

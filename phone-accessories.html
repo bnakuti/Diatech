@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Phone Accessories - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("images/network-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #1f2a37;
+}
+
+header {
+  background: #0e2a47;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  margin: 0;
+  background: rgba(255,255,255,0.95);
+}
+
+nav a {
+  color: #0e2a47;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6b35;
+  background: rgba(14,42,71,0.1);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 20px;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 34px;
+  color: #0e2a47;
+}
+
+.page-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 18px;
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 50px;
+}
+
+/* IMAGE SHOWCASE */
+.accessories-banner {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.accessories-banner img {
+  width: 100%;
+  max-width: 100%;   /* ✅ fills entire main container */
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* CTA SECTION */
+.cta-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255,255,255,0.92);
+  border-radius: 20px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255,107,53,0.6);
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  .hero-content { padding: 30px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📲 Phone Accessories</h1>
+  <p>We supply high-quality smartphone accessories including chargers, memory cards,
+    headphones, protectors, cases and more — all at competitive pricing.</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="office-solutions.html">💼 Office Solutions</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+ 
+  <!-- IMAGE SHOWCASE -->
+  <div class="accessories-banner">
+    <img src="images/phone-accessories.png" alt="Phone Accessories Products">
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h3 style="color:#0e2a47; margin-bottom: 20px;">
+      Need Phone Accessories for Your Business or Shop?
+    </h3>
+
+    <a href="request-quote.html" class="cta-button">
+      Request a Quote →
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+</body>
+</html>

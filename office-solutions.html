@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Office Solutions - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("images/network-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #1f2a37;
+}
+
+header {
+  background:
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("images/office-hero.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+  padding: 70px 20px;   /* same premium height as ICT */
+  text-align: center;
+}
+
+header h1 {
+  font-size: 64px;
+  font-weight: 800;
+  text-shadow: 0 6px 25px rgba(0,0,0,0.6);
+}
+
+header p {
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px;
+  margin: 0;
+  background: rgba(255,255,255,0.95);
+}
+
+nav a { 
+  color: #0e2a47; 
+  font-weight: 600; 
+  padding: 12px 20px; 
+  text-decoration: none; 
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover { 
+  color: #ff6b35; 
+  background: rgba(14,42,71,0.1);
+}
+
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.service-card {
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  border-top: 4px solid #ff6b35;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+.service-card h3 {
+  color: #0e2a47;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.cta-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 20px;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 25px rgba(255,107,53,0.4);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(255,107,53,0.6);
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.service-card h3 a {
+  text-decoration: none;
+  color: #0e2a47;
+  font-weight: 700;
+}
+
+.service-card h3 a:hover {
+  color: #ff6b35;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 38px;
+  }
+
+  header p {
+    font-size: 20px;
+  }
+}
+
+.office-badge {
+  display: inline-block;
+  background-color: #ff7a00; /* Clean modern orange */
+  color: #ffffff; /* White text */
+  border: 3px solid #ff7a00;
+  padding: 12px 20px;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Office Solutions</h1>
+	<div class="office-badge">
+		Everything your office needs for smooth operations and productivity
+	</div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section>
+     
+		<div class="service-grid">
+			<div class="service-card">
+			<h3><a href="stationaries.html">Office Stationaries</a></h3>
+			<p>Purchase directly a complete range of office stationery supplies with free shipping within Nairobi.</p>
+		</div>
+		      
+      <div class="service-card">
+			<h3><a href="computer-accessories.html">💻 Computers & Accessories</a></h3>
+			<p>Branded laptops, desktops, monitors, printers, scanners, UPS systems,keyboards, mice, cables, and complete office computer setups.</p>
+		</div>
+
+      
+      <div class="service-card">
+			<h3><a href="phone-accessories.html">📲 Phone Accessories</a></h3>
+			<p>Mobile Chargers, Memory cards, headphones, screen protectors and many more.</p>
+		</div>
+    </div>
+  </section>
+
+  <div class="cta-section">
+    <h3 style="color: #0e2a47; margin-bottom: 20px;">Ready to Equip Your Office?</h3>
+    <a href="index.html#contact" class="cta-button">Get Free Quote →</a>
+  </div>
+</main>
+
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+</body>
+</html>

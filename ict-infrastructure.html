@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ICT Infrastructure - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* ===============================
+   GLOBAL RESET + FIX OVERFLOW
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("images/network-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #1f2a37;
+}
+
+/* ===============================
+   HEADER + NAV
+================================ */
+header {
+  background: 
+    linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+    url("images/ict-hero.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  color: white;
+  padding: 90px 20px;   /* Controls height */
+  text-align: center;
+}
+
+header h1 {
+  font-size: 64px;   /* doubled */
+  font-weight: 800;
+  text-shadow: 0 6px 25px rgba(0,0,0,0.6);
+}
+
+header p {
+  font-size: 32px;   /* doubled */
+  font-weight: 600;
+  margin-top: 10px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.95);
+}
+
+nav a {
+  color: #0e2a47;
+  font-weight: 600;
+  padding: 10px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: #ff6b35;
+}
+
+/* ===============================
+   MAIN LAYOUT
+================================ */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* ===============================
+   SERVICE GRID (3 CARDS)
+================================ */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
+  align-items: start;
+  width: 100%;
+  max-width: 1100px;   /* ✅ grid stays full width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+/* ===============================
+   SERVICE CARD
+================================ */
+.service-card {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  border-top: 4px solid #ff6b35;
+  transition: 0.3s ease;
+  overflow: hidden;
+
+  /* ✅ Card sizing inside the grid */
+  width: 100%;
+  max-width: 360px;
+  justify-self: center;
+}
+
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+}
+
+.service-card h3 {
+  font-size: 22px;
+  color: #0e2a47;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+/* ===============================
+   ITEM BLOCKS (CCTV + OTHERS)
+================================ */
+.cctv-item,
+.service-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 18px;
+  border-radius: 15px;
+  margin-bottom: 18px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+
+  width: 100%;
+  overflow: hidden; /* ✅ stops elbowing */
+}
+
+/* ===============================
+   IMAGE CONTROL (FIXED SIZE)
+================================ */
+.cctv-item img,
+.service-item img {
+  width: 90px; /* ✅ Standard size */
+  height: 90px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* ===============================
+   TEXT FLEX FIX
+================================ */
+.cctv-text,
+.service-text {
+  flex: 1;
+  min-width: 0; /* ✅ MOST IMPORTANT FIX */
+}
+
+.cctv-text h3,
+.service-text h3 {
+  font-size: 17px;
+  margin-bottom: 6px;
+  color: #0e2a47;
+}
+
+.cctv-text p,
+.service-text p {
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: #444;
+}
+
+/* ===============================
+   CTA QUOTE BOX (ONE ONLY)
+================================ */
+.quote-box {
+  text-align: center;
+  background: linear-gradient(135deg, #0e2a47, #081d33);
+  padding: 25px 20px;
+  border-radius: 16px;
+  margin-top: 20px;
+  color: white;
+}
+
+.quote-box h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.quote-box p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===============================
+   BUTTON
+================================ */
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+/* ===============================
+   MOBILE FIX
+================================ */
+@media (max-width: 768px) {
+  .cctv-item,
+  .service-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cctv-item img,
+  .service-item img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    margin: auto;
+  }
+}
+
+
+
+/* Tighten spacing */
+.service-card:nth-of-type(2) .service-item {
+  gap: 12px;
+  padding: 15px;
+}
+
+
+/* Shrink images inside it */
+.service-grid > .service-card:nth-of-type(2) img {
+  width: 55px !important;
+}
+
+
+
+
+/* Reduce Time & Attendance Card */
+.service-card:nth-of-type(2) {
+  max-width: 360px;
+  justify-self: center;
+}
+
+.service-card:nth-of-type(2) .service-item img {
+  width: 55px;
+  height: 55px;
+}
+
+.service-card section {
+  width: 100%;
+}
+
+@media (max-width: 950px) {
+  .service-grid {
+    grid-template-columns: 1fr; /* Stack cards vertically */
+	}
+
+  }
+
+.service-card:nth-of-type(3) {
+  max-width: 360px;
+  justify-self: center;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ff6b35;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+.ICT-badge {
+  display: inline-block;
+  background-color: #ff7a00; /* Clean modern orange */
+  color: #ffffff; /* White text */
+  border: 3px solid #ff7a00;
+  padding: 12px 18px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ICT Infrastructure Solutions</h1><br>
+  <div class="ICT-badge">
+  Professional installation and support for enterprise-grade security and network systems
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section>
+    
+	<div class="cta-section">
+       
+	</div>
+    
+    <div class="service-grid">
+      <div class="service-card">
+        <h3>📹 CCTV Installation</h3>
+		<p>We provide complete surveillance systems tailored for homes, offices, shops and institutions.</p>
+       	<section class="cctv-showcase">
+		
+			<!-- ITEM 1 -->
+			<div class="cctv-item">
+				<img src="images/dome-camera.png" alt="Dome Camera">
+	
+				<div class="cctv-text">
+				<h3>Dome Cameras (Indoor)</h3>
+				<p>
+				Perfect for offices, shops and indoor spaces. Discreet, modern and highly reliable.
+				</p>
+				</div>
+			</div>
+
+		<!-- ITEM 2 -->
+			<div class="cctv-item">
+				<img src="images/bullet-camera.png" alt="Bullet Camera">
+
+				<div class="cctv-text">
+					<h3>Bullet Cameras (Outdoor)</h3>
+					<p>Built for outdoor security with night vision and weatherproof protection.</p>
+				</div>
+			</div>
+
+  <!-- ITEM 3 -->
+  <div class="cctv-item">
+    <img src="images/ptz-camera.png" alt="PTZ Camera">
+
+    <div class="cctv-text">
+      <h3>PTZ Cameras (Zoom & Rotation)</h3>
+      <p>
+        Advanced cameras that rotate and zoom, ideal for wide areas like warehouses.
+      </p>
+    </div>
+  </div>
+
+  <!-- ITEM 4 -->
+  <div class="cctv-item">
+    <img src="images/nvr-dvr.png" alt="Recorder">
+
+    <div class="cctv-text">
+      <h3>NVR / DVR Recording Systems</h3>
+      <p>
+        Secure storage of footage with playback, backups and multi-camera support.
+      </p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="quote-box">
+    <h3>Need a CCTV Installation?</h3>
+    <p>Let us design the best surveillance solution for your premises.</p>
+
+    <a href="request-quote.html" class="cta-button">
+      Request a Quote →
+    </a>
+  </div>
+
+</section>
+
+      </div>
+      
+      <div class="service-card">
+        <h3>⏰ Time & Attendance</h3>
+        <p>We provide smart and secure solutions for tracking employee attendance and time management.</p>
+
+  <section class="service-showcase">
+
+    <!-- ITEM 1 -->
+    <div class="service-item">
+      <img src="images/biometric-terminal.png" alt="Biometric Terminal">
+      <div class="service-text">
+        <h3>Biometric Terminals</h3>
+        <p>Accurate fingerprint terminals for seamless employee clock-in/out.</p>
+      </div>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="service-item">
+      <img src="images/rfid-card-reader.png" alt="RFID Card Reader">
+      <div class="service-text">
+        <h3>RFID Card Readers</h3>
+        <p>Fast and secure card-based attendance systems for offices and factories.</p>
+      </div>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="service-item">
+      <img src="images/software-dashboard.png" alt="Software Dashboard">
+      <div class="service-text">
+        <h3>Management Software</h3>
+        <p>Monitor attendance, generate reports, and manage shifts from an intuitive dashboard.</p>
+      </div>
+    </div>
+	
+	<!-- ITEM 4 -->
+    <div class="service-item">
+      <img src="images/facial-recognition.png" alt="Facial recognition">
+      <div class="service-text">
+        <h3>Facial Recognition</h3>
+        <p>Advanced face recognition for quick, hands-free check-ins.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="quote-box">
+      <h3>Need Time & Attendance Solutions?</h3>
+      <p>Let us design the best system for your business.</p>
+      <a href="request-quote.html" class="cta-button">Request a Quote →</a>
+    </div>
+
+  </section>
+</div>
+
+     
+      
+      <div class="service-card">
+        <h3>🔐 Access Controls</h3>
+  <p>Secure your premises with advanced access control systems tailored to your needs.</p>
+
+  <section class="service-showcase">
+
+    <!-- ITEM 1 -->
+    <div class="service-item">
+      <img src="images/door-controller.png" alt="Door Controller">
+      <div class="service-text">
+        <h3>Door Controllers</h3>
+        <p>Centralized door controllers for secure entry and exit management.</p>
+      </div>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="service-item">
+      <img src="images/electronic-lock.png" alt="Electronic Lock">
+      <div class="service-text">
+        <h3>Electronic Locks</h3>
+        <p>Smart locks with PIN, card, or biometric authentication for enhanced security.</p>
+      </div>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="service-item">
+      <img src="images/access-software.png" alt="Access Software">
+      <div class="service-text">
+        <h3>Software Management</h3>
+        <p>Monitor access events, control permissions, and generate detailed reports.</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="quote-box">
+      <h3>Need Access Control Solutions?</h3>
+      <p>We’ll design a secure and efficient access system for your premises.</p>
+      <a href="request-quote.html" class="cta-button">Request a Quote →</a>
+    </div>
+
+  </section>
+</div>
+
+      </div>
+    </div>
+	
+	
+  </section>
+
+  
+</main>
+
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+</body>
+</html>

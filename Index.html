@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DIATECH LIMITED | ICT & Business Solutions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+html { scroll-behavior: smooth; }
+html, body { min-height: 100%; }
+
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.35), rgba(255,255,255,0.35)),
+    url("images/network-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #1f2a37;
+}
+
+a { text-decoration: none; color: inherit; }
+
+/* HEADER (Banner Image Version) */
+/* HEADER BANNER IMAGE */
+header {
+  width: 100%;
+  height: 320px; /* Adjust if you want taller */
+  background: url("images/diatech-banner.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  padding-bottom: 10px; /* shrink from default 20px or 30px */
+  margin: 0;
+}
+/* SERVICES SECTION */
+#services {
+  padding-top: 20px;    /* move Our Services closer to banner */
+  padding-bottom: 20px; /* optional: reduce extra bottom space */
+}
+
+
+/* CONTACT SECTION */
+#contact {
+  padding-top: 20px;    /* move Contact Us closer to above section */
+  padding-bottom: 20px; /* optional: reduce extra bottom space */
+  margin-top: 0;        /* ensure no negative margin */
+}
+/* NAV */
+nav {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 0;
+  gap: 30px;
+}
+
+nav li {
+  font-weight: 600;
+  color: #0e2a47;
+  padding: 12px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+nav li:hover {
+  background: rgba(14,42,71,0.1);
+  color: #ff6b35;
+  transform: translateY(-2px);
+}
+
+nav a { color: #0e2a47; }
+nav a:hover { color: #ff6b35; }
+
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+section h2 {
+  color: #0e2a47;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* CARDS */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ff6b35, #f7931e, #0e2a47);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card h2, .card h3 {
+  color: #0e2a47 !important;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.card p {
+  color: #333 !important;
+  line-height: 1.6;
+}
+
+/* ABOUT SECTION */
+.about-card-section {
+  padding: 50px 20px;
+}
+
+.about-card-section .card {
+  max-width: 850px;
+  margin: auto;
+  padding: 30px;
+}
+
+/* CONTACT SECTION */
+#contact .grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+#contact .card {
+  text-align: center;
+  padding: 25px 15px;
+}
+
+/* HERO CTA */
+.hero-services {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 22px;
+  padding: 50px 40px;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.hero-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #0e2a47, #ff6b35);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 20px;
+  transition: 0.3s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  opacity: 0.95;
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  .hero-content { padding: 30px 20px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER IMAGE -->
+<header></header>
+
+<!-- NAV -->
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ABOUT -->
+<section id="about" class="about-card-section">
+  <div class="card">
+    <h2>Why DIATECH LIMITED.</h2>
+    <p style="font-size: 18px; line-height: 1.6; font-weight: 500; margin:0;">
+		<strong>DIATECH LIMITED</strong> (est. 2022) delivers innovative solutions for businesses across East Africa.<br>
+		<br><span style="font-weight:500;">
+			We specialize in 
+			<span style="color:#0047ab;">ICT Infrastructure & Security Systems</span>, 
+			<span style="color:#d147a3;">Office Solutions</span>, and
+			<span style="color:#ff6b35;">Automotive Computer Diagnostics.</span>
+		</span>Providing reliable, secure, and scalable technology that helps organizations operate efficiently and grow with confidence.
+	</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <h2>Our Services</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3><a href="ict-infrastructure.html">ICT Infrastructure</a></h3>
+      <p>Design, deployment and support of CCTV, Time & Attendance and Access Control Systems.</p>
+    </div>
+
+    <div class="card">
+      <h3><a href="office-solutions.html">Office Solutions</a></h3>
+      <p>Purchase all your office stationery, computer accessories and phone accessories.</p>
+    </div>
+
+    <div class="card">
+      <h3><a href="automotive-diagnostic-tools.html">Automotive Computer Diagnostic Tools</a></h3>
+      <p>XTRUCK, OBD2 scanners, CAT ET adapters, Perkins EST kits, Scania VCI tools and heavy-duty solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Us</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>📧 Email</h3>
+      <p>info@diatech.co.ke</p>
+    </div>
+
+    <div class="card">
+      <h3>📱 Phone</h3>
+      <p>+254 700 000 000</p>
+    </div>
+
+    <div class="card">
+      <h3>📍 Location</h3>
+      <p>Nairobi, Kenya</p>
+    </div>
+
+    <div class="card">
+      <h3>💬 WhatsApp</h3>
+      <p>+254 722256199</p>
+    </div>
+  </div>
+</section>
+
+<!-- HERO CTA -->
+<section class="hero-services">
+  <div class="hero-content">
+    <h2>Partner With DIATECH LIMITED</h2>
+    <p>
+      We help businesses achieve efficiency, security and growth through reliable ICT solutions.
+      Explore our services to find the right solution for your needs.
+    </p>
+
+    <a href="request-quote.html" class="cta-button">
+      Request a Quote →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<!-- FOOTER -->
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+<!-- Smooth Scroll Script (Clean Single Version) -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>

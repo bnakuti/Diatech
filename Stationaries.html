@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Office Stationaries - DIATECH LIMITED</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+/* =========================
+   GLOBAL RESET & BODY
+   ========================= */
+body {
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #1f2a37;
+  position: relative;
+  background: 
+    linear-gradient(135deg, #f8f1f1 0%, #f4ede8 25%, #faf7f4 50%, #f9f5f2 75%, #fefaf8 100%),
+    radial-gradient(circle at 30% 20%, rgba(255,107,53,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(247,147,30,0.06) 0%, transparent 50%);
+  background-size: 200% 200%, cover, cover;
+  background-attachment: fixed;
+  animation: gradientShift 8s ease infinite;
+}
+
+/* =========================
+   HEADER
+   ========================= */
+header {
+  background: #0e2a47;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 7000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/* =========================
+   NAV / SUB-HEADER
+   ========================= */
+nav {
+  position: fixed;
+  top: 120px; /* final tweak */
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  background: rgba(255,255,255,0.98);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 5px;
+  margin: 0;
+}
+
+nav a {
+  color: #0e2a47;
+  font-weight: 600;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6b35;
+  background: rgba(14,42,71,0.1);
+}
+
+/* =========================
+   MAIN CONTENT
+   ========================= */
+main {
+  padding: 180px 20px 60px; /* accounts for header + nav */
+}
+
+/* =========================
+   PRODUCT TABLE
+   ========================= */
+.table-scroll-container {
+  width: 70%;
+  margin: 0 auto;
+  max-height: calc(100vh - 260px);
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  border-radius: 15px;
+  padding-right: 4px;
+}
+
+.products-table {
+  table-layout: fixed !important;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 15px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px;
+}
+
+.products-table th,
+.products-table td {
+  padding: 18px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.products-table th {
+  background: linear-gradient(135deg, #0e2a47, #1e3a5f);
+  color: white;
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+tr:hover td:not(:last-child) {
+  background: rgba(255,107,53,0.05);
+}
+
+/* Column widths */
+.products-table th:nth-child(1),
+.products-table td:nth-child(1) { width: 20%; }
+.products-table th:nth-child(2),
+.products-table td:nth-child(2) { width: 30%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.products-table th:nth-child(3),
+.products-table td:nth-child(3) { width: 10%; text-align: right; }
+.products-table th:nth-child(4),
+.products-table td:nth-child(4) { 
+  width: 90px !important; 
+  max-width: 90px; 
+  min-width: 90px; 
+  position: sticky !important; 
+  right: 0; 
+  z-index: 20; 
+  background: linear-gradient(135deg, #ff6b35, #f7931e); 
+  border-left: 4px solid #ff6b35; 
+  box-shadow: -3px 0 10px rgba(0,0,0,0.1);
+}
+
+.add-cart {
+  background: linear-gradient(135deg, #ff6b35, #f7931e);
+  color: white !important;
+  border: none;
+  border-radius: 12px;
+  padding: 8px 16px !important;
+  font-size: 14px !important;
+  width: 100%;
+  display: block !important;
+  margin: 0 auto;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(255,107,53,0.3);
+  transition: all 0.3s ease;
+}
+
+.add-cart:hover {
+  background: linear-gradient(135deg, #e55a2b, #e6820b);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(255,107,53,0.5);
+}
+
+/* =========================
+   CART PANEL
+   ========================= */
+.fixed-cart-panel {
+  position: fixed;
+  top: 120px; /* below header + nav */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(135deg, rgba(254,250,248,0.92) 0%, rgba(248,241,241,0.88) 50%, rgba(244,237,232,0.95) 100%),
+    radial-gradient(circle at 20% 10%, rgba(255,107,53,0.12) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(247,147,30,0.08) 0%, transparent 40%);
+  backdrop-filter: blur(12px);
+  z-index: 5000;
+  transform: translateY(-100%);
+  transition: transform 0.4s ease;
+  padding: 30px 5%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.fixed-cart-panel.active {
+  transform: translateY(0);
+}
+
+/* Cart content: 2 columns */
+.fixed-cart-content {
+  display: flex;
+  gap: 4%;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1;
+}
+
+.items-column { flex: 0 0 65%; padding-top: 5px; }
+.customer-column { 
+  flex: 0.35; 
+  min-width: 300px; 
+  background: linear-gradient(135deg, rgba(255,107,53,0.05), rgba(247,147,30,0.05));
+  padding: 25px; 
+  border-radius: 20px; 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 2px solid rgba(255,107,53,0.3);
+  flex-shrink: 0;
+}
+
+/* Cart Items Scroll */
+.fixed-cart-items {
+  max-height: calc(100vh - 250px);
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  padding-right: 8px;
+  margin-top: 10px;
+}
+
+/* Sticky total/submit */
+.cart-total-fixed, .fixed-submit-cart {
+  flex-shrink: 0;
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 15px 0;
+  border-top: 3px solid #ff6b35;
+  z-index: 10;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.fixed-submit-cart {
+  width: 100%;
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 25px rgba(40,167,69,0.3);
+  transition: all 0.3s ease;
+}
+
+.fixed-submit-cart:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(40,167,69,0.5);
+}
+
+.customer-form-fixed input {
+  width: 100%;
+  max-width: 100%;
+  padding: 15px 18px;
+  margin-bottom: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+.customer-form-fixed input:focus {
+  outline: none;
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+}
+
+/* =========================
+   CART OPEN STATE
+   ========================= */
+body.cart-open {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* =========================
+   GRADIENT ANIMATION
+   ========================= */
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+  nav { top: 100px; }
+  .fixed-cart-content { flex-direction: column; gap: 0.5rem; }
+  .items-column, .customer-column { width: 100%; min-height: 0; }
+  .fixed-cart-items { max-height: 35vh; }
+  .products-table, .table-scroll-container { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
+  .products-table th:nth-child(4), .products-table td:nth-child(4) { position: static !important; right: auto !important; z-index: auto !important; }
+}
+
+/* MAKE SEARCH BAR FULLY ROUNDED */
+.search-box {
+  border-radius: 50px !important;
+}
+
+.continue-shopping-btn {
+  background: orange !important;
+  border-radius: 50px !important;
+}
+
+/* ==========================================
+   PROFESSIONAL WIDE ROUNDED SEARCH BAR
+   ========================================== */
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.search-box {
+  width: 80% !important;          /* Wider */
+  max-width: 750px !important;    /* Professional size */
+  padding: 16px 22px !important;
+  font-size: 17px !important;
+
+  border: 2px solid #e2e8f0;
+  border-radius: 50px !important; /* Fully rounded */
+
+  background: white;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  transition: all 0.25s ease;
+}
+
+/* Nice focus effect */
+.search-box:focus {
+  outline: none;
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 4px rgba(255,107,53,0.18);
+}
+
+/* MOVE ENTIRE ORDER ITEMS COLUMN DOWN */
+.items-column {
+  padding-top: 25px !important;
+}
+
+/* REMOVE EXTERNAL PAGE SCROLLBAR — ONLY PRODUCT TABLE SCROLLS */
+html, body {
+  height: 100%;
+  overflow: hidden !important;
+}
+
+/* FIX: Prevent last item from hiding under totals */
+.fixed-cart-items {
+  max-height: calc(100vh - 330px) !important;
+}
+
+.continue-shopping-btn:hover {
+    cursor: pointer;
+}
+
+/* ===== Custom Scrollbars (WebKit Browsers) ===== */
+.table-scroll-container::-webkit-scrollbar,
+.fixed-cart-items::-webkit-scrollbar {
+    width: 12px;   /* width of vertical scrollbar */
+    height: 12px;  /* height of horizontal scrollbar if any */
+}
+
+.table-scroll-container::-webkit-scrollbar-track,
+.fixed-cart-items::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);  /* subtle background for the track */
+    border-radius: 10px;
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb,
+.fixed-cart-items::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b35, #f7931e);  /* orange gradient */
+    border-radius: 10px;
+    border: 3px solid rgba(0,0,0,0.05); /* padding effect */
+}
+
+.table-scroll-container::-webkit-scrollbar-thumb:hover,
+.fixed-cart-items::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #e55a2b, #e6820b); /* darker orange on hover */
+}
+
+/* FOOTER */
+footer {
+  background: linear-gradient(135deg, #0e2a47 0%, #081d33 100%);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  nav ul { flex-wrap: wrap; gap: 15px; }
+  .hero-content { padding: 30px 20px; }
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📚 Office Stationaries</h1>
+  <p>Quality stationery supplies for Nairobi offices</p>
+  </header>
+  
+ <nav>
+  <ul>
+    <li><a href="index.html">🏠 Home</a></li>
+    <li><a href="office-solutions.html">💼 Office Solutions</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+    
+	<!-- CART BUTTON MOVED HERE -->
+    <li style="position: relative;">
+	
+		<button class="cart-toggle-nav" onclick="toggleFixedCart()" 
+			style="background: linear-gradient(135deg, #ff6b35, #f7931e) !important; border:none; font-size:22px; padding:3px 16px; cursor:pointer; line-height:1; border-radius:50px; box-shadow:0 4px 12px rgba(255,107,53,0.4); color:white; transition:all 0.3s ease;">
+			🛒
+		<span id="cartBadgeFixed" style="position:absolute; top:-12px; right:-18px; background:#dc3545; color:white; border-radius:50%; width:22px; height:22px; font-size:11px; font-weight:bold; border:3px solid white; display:flex; align-items:center; justify-content:center; z-index:100;">0</span>
+		</button>
+	</li>
+
+
+
+  </ul>
+</nav>
+
+
+<!-- CLEAN 2-COLUMN FIXED CART -->
+<div id="fixedCartPanel" class="fixed-cart-panel">
+  
+  <!-- HEADER -->
+  
+  
+  
+  <!-- 2-COLUMN CONTENT -->
+  <div class="fixed-cart-content">
+    <!-- LEFT: ITEMS (60%) -->
+    <div class="items-column">
+		<h4 style="margin:0 0 15px 0;color:#0e2a47;display:flex;align-items:center;gap:15px">
+        Order Items 
+        <button class="continue-shopping-btn" onclick="hideFixedCart()" title="Continue Shopping">
+            ← Continue Shopping
+        </button>
+    </h4>
+    <div class="fixed-cart-items" id="fixedCartItems">
+			<p style="text-align:center;color:#666;padding:40px;font-style:italic">Cart empty - add items from table</p>
+		</div>
+		
+  <!-- TOTAL NOW STAYS HERE - ALWAYS VISIBLE -->
+		<div class="cart-total-fixed">
+			<div style="font-size:20px;font-weight:700;color:#0e2a47">
+				💰 Total: KES <span id="fixedCartTotal" style="color:#ff6b35">0</span>
+			</div>
+		   <div style="font-size:14px;color:#666;margin-top:5px">🚚 Free delivery in Nairobi</div>
+		</div>
+	</div>
+
+    
+    <!-- RIGHT: FORM (35%) -->
+    <div class="customer-column">
+		<h4 style="margin:0 0 20px 0;color:#0e2a47;border-bottom:2px solid #ff6b35;padding-bottom:10px">Customer Details</h4>
+			<div class="customer-form-fixed">
+				<input type="text" id="fixedCartName" placeholder="👤 Full Name *" required pattern="[A-Za-z\s]+" title="Name must contain letters only"/>
+				<input type="tel" id="fixedCartPhone" placeholder="📞 Phone Number *" required inputmode="numeric" pattern="[0-9]+" title="Phone number must contain digits only"/>
+				<input type="email" id="fixedCartEmail" placeholder="📧 Email (Optional)">
+				<input type="text" id="fixedCartAddress" placeholder="📍 Delivery Address *" required>
+				<div class="mobile-submit-wrapper">
+				<button class="fixed-submit-cart" onclick="submitFixedCart()">✅ Place Order Now</button>
+				</div>
+
+			</div>
+
+	</div>
+	
+	
+
+  </div>
+</div>
+
+
+<main>
+  <div class="search-container">
+  <input type="text" id="searchInput" placeholder="🔍 Search items..." class="search-box">
+  
+</div>
+
+  <div class="table-scroll-container">
+    <div class="table-wrapper">
+      <table class="products-table">
+  <colgroup>
+    <col style="width: 32%;">
+    <col style="width: 38%;">
+    <col style="width: 15%;">
+    <col style="width: 15%;">  <!-- ADD column = 10% -->
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Item</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Add</th>
+    </tr>
+  </thead>
+  <tbody>
+		
+          <tr>
+            <td>AONE Printing Paper A4</td>
+            <td>500 sheets ream, 70gsm</td>
+            <td><strong>KES 615</strong></td>
+            <td><button class="add-cart"data-id="0001"data-name="AONE Printing Paper A4"data-price="615"onclick="addToCart(this)">Add</button></td>
+          </tr>
+          <tr>
+            <td>Pentel Pen BL417 Blue</td>
+            <td>0.7mm gel pen, long-lasting</td>
+            <td><strong>KES 175</strong></td>
+            <td><button class="add-cart"data-id="0002"data-name="Pentel Pen BL417 Blue"data-price="175"onclick="addToCart(this)">Add</button></td>
+		  </tr>
+          <tr>
+            <td>C4 / A4 Brown envelope</td>
+            <td>Soft - Per piece</td>
+            <td><strong>KES 10</strong></td>
+            <td><button class="add-cart"data-id="0003"data-name="C4 / A4 Brown envelope"data-price="10"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>C4 / A4 Brown envelope</td>
+            <td>Soft - Per bunch of 25</td>
+            <td><strong>KES 200</strong></td>
+            <td><button class="add-cart"data-id="0004"data-name="C4 / A4 Brown envelope"data-price="200"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A5 / C5 Brown Envelope</td>
+            <td>Soft - per piece</td>
+            <td><strong>KES 5</strong></td>
+            <td><button class="add-cart"data-id="0005"data-name="A5 / C5 Brown Envelope"data-price="5"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A5 / C5 Brown Envelope</td>
+            <td>Soft - per bunch of 25</td>
+            <td><strong>KES 100</strong></td>
+            <td><button class="add-cart"data-id="0006"data-name="A5 / C5 Brown Envelope"data-price="100"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Biro Pens</td>
+            <td>Mixed colours</td>
+            <td><strong>KES 30</strong></td>
+            <td><button class="add-cart"data-id="0007"data-name="Biro Pens"data-price="30"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Marker Pen</td>
+            <td>SNOWY per piece</td>
+            <td><strong>KES 50</strong></td>
+            <td><button class="add-cart"data-id="0008"data-name="Marker Pen"data-price="50"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>35A Black Toner</td>
+            <td>Generic Toner for HP Laserjet P1005/P1006 Printers</td>
+            <td><strong>KES 4000</strong></td>
+            <td><button class="add-cart"data-id="0009"data-name="35A Black Toner"data-price="4000"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A3 Envelope</td>
+            <td>Soft Brown Envelope</td>
+            <td><strong>KES 30</strong></td>
+            <td><button class="add-cart"data-id="0010"data-name="35A Black Toner"data-price="30"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A4 Glossy Photo Paper</td>
+            <td>Ream</td>
+            <td><strong>KES 350</strong></td>
+            <td><button class="add-cart"data-id="0011"data-name="A4 Glossy Photo"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A4 White paper Ream</td>
+            <td>SVETOCOPY</td>
+            <td><strong>KES 850</strong></td>
+            <td><button class="add-cart"data-id="0012"data-name="A4 White paper Ream"data-price="850"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A4 White paper Ream</td>
+            <td>JK</td>
+            <td><strong>KES 900</strong></td>
+            <td><button class="add-cart"data-id="0013"data-name="A4 White paper Ream"data-price="900"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Conquer Paper</td>
+            <td>White color per piece</td>
+            <td><strong>KES 50</strong></td>
+            <td><button class="add-cart"data-id="0014"data-name="Conquer Paper"data-price="50"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Name badge</td>
+            <td>ID Size Name badge</td>
+            <td><strong>KES 50</strong></td>
+            <td><button class="add-cart"data-id="0015"data-name="Name Badge"data-price="50"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Note A5 Boxes</td>
+            <td>Note A5 Boxes Dozen</td>
+            <td><strong>KES 480</strong></td>
+            <td><button class="add-cart"data-id="0016"data-name="Note A5 Boxes"data-price="480"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Staple Pins 24/6</td>
+            <td>Staple Pins 24/6 per packet</td>
+            <td><strong>KES 350</strong></td>
+            <td><button class="add-cart"data-id="0017"data-name="Staple Pins 24/6"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Paper Punch</td>
+            <td>Paper Punch</td>
+            <td><strong>KES 480</strong></td>
+            <td><button class="add-cart"data-id="0018"data-name="Paper Punch"data-price="480"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Staple Remover</td>
+            <td>Staple Remover per packet</td>
+            <td><strong>KES 250</strong></td>
+            <td><button class="add-cart"data-id="0019"data-name="Staple Remover"data-price="250"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Stamp Pad</td>
+            <td>Stamp Pad</td>
+            <td><strong>KES 150</strong></td>
+            <td><button class="add-cart"data-id="0020"data-name="Stamp Pad"data-price="150"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Stamp Ink</td>
+            <td>Stamp Ink</td>
+            <td><strong>KES 150</strong></td>
+            <td><button class="add-cart"data-id="0021"data-name="Stamp Ink"data-price="150"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Print Glue</td>
+            <td>Print Glue</td>
+            <td><strong>KES 150</strong></td>
+            <td><button class="add-cart"data-id="0022"data-name="Print Glue"data-price="150"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Carbon Papers</td>
+            <td>Carbon Papers Ream</td>
+            <td><strong>KES 35</strong></td>
+            <td><button class="add-cart"data-id="0023"data-name="Carbon Papers"data-price="35"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Box File</td>
+            <td>Box Files</td>
+            <td><strong>KES 300</strong></td>
+            <td><button class="add-cart"data-id="0024"data-name="Box File"data-price="300"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Ruler</td>
+            <td>Flexible / Fixed 30cm Ruler</td>
+            <td><strong>KES 60</strong></td>
+            <td><button class="add-cart"data-id="0025"data-name="Ruler"data-price="50"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Spring File</td>
+            <td>Spring Files</td>
+            <td><strong>KES 160</strong></td>
+            <td><button class="add-cart"data-id="0026"data-name="Spring File"data-price="160"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Envelope DL</td>
+            <td>Envelope DL per piece</td>
+            <td><strong>KES 10</strong></td>
+            <td><button class="add-cart"data-id="0027"data-name="Envelope DL"data-price="10"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Paper Clips</td>
+            <td>Paper Clips per box</td>
+            <td><strong>KES 350</strong></td>
+            <td><button class="add-cart"data-id="0028"data-name="Paper Clips"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Book Binding Tape</td>
+            <td>Book Binding Tape per pc</td>
+            <td><strong>KES 480</strong></td>
+            <td><button class="add-cart"data-id="0029"data-name="Book Binding Tape"data-price="480"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Big Masking Tape</td>
+            <td>Big masking Taper per pc</td>
+            <td><strong>KES 490</strong></td>
+            <td><button class="add-cart"data-id="0030"data-name="Big masking Tape"data-price="490"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>A4 Delivery Book</td>
+            <td>A4 Delivery Book per pc</td>
+            <td><strong>KES 250</strong></td>
+            <td><button class="add-cart"data-id="0031"data-name="A4 Delivery Book"data-price="250"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>26A Toner</td>
+            <td>Generic Black HP toner for Laserjet pro M426FDN</td>
+            <td><strong>KES 7500</strong></td>
+            <td><button class="add-cart"data-id="0032"data-name="26A Toner"data-price="7500"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>85A Toner</td>
+            <td>Generic HP Toner Cyan</td>
+            <td><strong>KES 4500</strong></td>
+            <td><button class="add-cart"data-id="0033"data-name="85A Toner"data-price="4500"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>410A Toner</td>
+            <td>Generic Black Toner for HP Pro 300/400</td>
+            <td><strong>KES 4500</strong></td>
+            <td><button class="add-cart"data-id="0034"data-name="410A Toner"data-price="4500"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>210A Toner</td>
+            <td>Generic HP Black Toner for HP 7100/7110</td>
+            <td><strong>KES 4500</strong></td>
+            <td><button class="add-cart"data-id="0035"data-name="210A Toner"data-price="4500"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>305A Toner</td>
+            <td>Generic HP Black Toner</td>
+            <td><strong>KES 4500</strong></td>
+            <td><button class="add-cart"data-id="0036"data-name="305A Toner"data-price="4500"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>103 Black</td>
+            <td>Epson refill Black ink 70ml</td>
+            <td><strong>KES 350</strong></td>
+            <td><button class="add-cart"data-id="0037"data-name="103 Black"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>103 Cyan</td>
+            <td>Epson refill Cyan ink 70ml</td>
+            <td><strong>KES 450</strong></td>
+            <td><button class="add-cart"data-id="0038"data-name="103 Cyan"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>103 Magenta</td>
+            <td>Epson refill Magenta ink 70ml</td>
+            <td><strong>KES 450</strong></td>
+            <td><button class="add-cart"data-id="0039"data-name="103 Magenta"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>103 yellow</td>
+            <td>Epson refill yellow ink 70ml</td>
+            <td><strong>KES 450</strong></td>
+            <td><button class="add-cart"data-id="0040"data-name="103 yellow"data-price="350"onclick="addToCart(this)">Add</button></td>
+          </tr>
+		  <tr>
+            <td>Cover Files</td>
+            <td>Clear Cover Files per pc</td>
+            <td><strong>KES 100</strong></td>
+            <td><button class="add-cart"data-id="0041"data-name="Cover Files"data-price="100"onclick="addToCart(this)">Add</button></td>
+          </tr>		  
+	    </tbody>
+      </table>
+    </div>
+  </div>
+
+</main>
+
+
+<script>
+let cart = [];
+document.addEventListener('DOMContentLoaded', function () {
+
+  // SEARCH FILTER
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const term = this.value.toLowerCase();
+    document.querySelectorAll('.products-table tbody tr').forEach(row => {
+      const item = row.cells[0].textContent.toLowerCase();
+      const desc = row.cells[1].textContent.toLowerCase();
+      row.style.display = (item.includes(term) || desc.includes(term)) ? '' : 'none';
+    });
+  });
+
+  // FULL NAME — LETTERS ONLY
+  document.getElementById('fixedCartName').addEventListener('input', function () {
+    this.value = this.value.replace(/[^A-Za-z\s]/g, '');
+  });
+
+});
+
+function addToCart(btn) {
+  const id = btn.dataset.id;
+  const name = btn.dataset.name;
+  const price = parseFloat(btn.dataset.price);
+
+  const key = id + '-' + price;
+
+  const existing = cart.find(item => item.key === key);
+
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({
+      key,
+      id,
+      name,
+      price,
+      qty: 1
+    });
+  }
+
+  updateFixedCart();
+}
+
+function changeQty(id, delta) {
+  id = String(id); // 🔑 FORCE string comparison
+
+  const item = cart.find(i => String(i.id) === id);
+  if (!item) return;
+
+  item.qty += delta;
+
+  if (item.qty <= 0) {
+    cart = cart.filter(i => String(i.id) !== id);
+  }
+
+  updateFixedCart();
+}
+
+function updateFixedCart() {
+  const cartItems = document.getElementById('fixedCartItems');
+  const cartBadge = document.getElementById('cartBadgeFixed');
+  const cartTotal = document.getElementById('fixedCartTotal');
+
+  cartItems.innerHTML = '';
+  let totalAmount = 0;
+  let totalQty = 0;
+
+  cart.forEach(item => {
+    totalQty += item.qty;
+    totalAmount += item.price * item.qty;
+
+    cartItems.innerHTML += `
+       <div class="cart-item" style="display:flex;align-items:center;padding:15px 0;border-bottom:1px solid #eee;gap:15px">
+    
+    <div style="flex:1">
+      <strong style="font-size:16px">${item.name}</strong><br>
+      <small style="color:#666">KES ${item.price.toLocaleString()} × ${item.qty}</small>
+    </div>
+
+    <div style="display:flex;align-items:center;gap:8px">
+      <button onclick="changeQty('${item.id}', -1)"
+        style="width:32px;height:32px;border-radius:50%;background:#dc3545;color:white;border:none;font-weight:bold;cursor:pointer">
+        −
+      </button>
+
+      <span style="min-width:30px;text-align:center;font-weight:700">
+        ${item.qty}
+      </span>
+
+      <button onclick="changeQty('${item.id}', 1)"
+        style="width:32px;height:32px;border-radius:50%;background:#28a745;color:white;border:none;font-weight:bold;cursor:pointer">
+        +
+      </button>
+    </div>
+  </div>
+    `;
+  });
+
+  cartBadge.textContent = totalQty;
+  cartTotal.textContent = totalAmount.toLocaleString();
+}
+
+
+function changeFixedQty(key, delta) {
+  const item = cart.find(i => i.key === key);
+  if (!item) return;
+
+  item.qty += delta;
+
+  if (item.qty <= 0) {
+    cart = cart.filter(i => i.key !== key);
+  }
+
+  updateFixedCart();
+}
+
+
+
+/* ==========================================
+   FINAL CART OPEN/CLOSE + SCROLL LOCK FIX
+   ========================================== */
+
+function toggleFixedCart() {
+  const cartPanel = document.getElementById("fixedCartPanel");
+
+  cartPanel.classList.toggle("active");
+
+  // ✅ Lock background scroll when cart is active
+  if (cartPanel.classList.contains("active")) {
+    document.body.classList.add("cart-open");
+  } else {
+    document.body.classList.remove("cart-open");
+  }
+}
+
+function hideFixedCart() {
+  const cartPanel = document.getElementById("fixedCartPanel");
+
+  cartPanel.classList.remove("active");
+
+  // ✅ Always unlock background scroll
+  document.body.classList.remove("cart-open");
+}
+
+
+function generateOrderNumber() {
+  const prefix = "DT";
+  const year = new Date().getFullYear();
+
+  let lastOrder = localStorage.getItem("lastOrderNumber") || 0;
+  lastOrder = parseInt(lastOrder) + 1;
+
+  localStorage.setItem("lastOrderNumber", lastOrder);
+
+  const padded = String(lastOrder).padStart(6, "0");
+  return `${prefix}-${year}-${padded}`;
+}
+
+
+function submitFixedCart() {
+  const name = document.getElementById('fixedCartName').value.trim();
+  const phone = document.getElementById('fixedCartPhone').value.trim();
+  const email = document.getElementById('fixedCartEmail').value.trim();
+  const address = document.getElementById('fixedCartAddress').value.trim();
+  const orderNumber = generateOrderNumber();
+
+
+  if (!name || !phone || !address || cart.length === 0) {
+    alert('Please fill all required fields and add items to the cart.');
+    return;
+  }
+
+  if (phone.length < 10) {
+    alert('Phone number must be at least 10 digits.');
+    return;
+  }
+
+  // Build items list
+  const orderItemsText = cart
+    .map(item => `${item.name} x${item.qty} = KES ${(item.price * item.qty).toLocaleString()}`)
+    .join('\n');
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+
+  // WhatsApp
+  const waMessage = `🛒 DIATECH STATIONERY ORDER
+
+👤 Customer: ${name}
+📞 Phone: ${phone}${email ? `\n📧 Email: ${email}` : ''}
+📍 Address: ${address}
+
+🛍️ ITEMS:
+${orderItemsText}
+
+💰 TOTAL: KES ${total.toLocaleString()}
+🚚 Free delivery in Nairobi`;
+
+  window.open(
+    `https://wa.me/254737602684?text=${encodeURIComponent(waMessage)}`,
+    '_blank'
+  );
+
+  // EmailJS
+  emailjs.send(
+    'service_cg6uh8h',
+    'template_592cun7',
+    {
+      customer_name: name,
+      customer_phone: phone,
+      customer_email: email || 'N/A',
+      delivery_address: address,
+      order_items: orderItemsText,
+      order_total: total.toLocaleString()
+    }
+  ).then(
+    function () {
+      // ✅ RESET ONLY AFTER SUCCESS
+      cart = [];
+      updateFixedCart();
+      hideFixedCart();
+
+      document.getElementById('fixedCartName').value = '';
+      document.getElementById('fixedCartPhone').value = '';
+      document.getElementById('fixedCartEmail').value = '';
+      document.getElementById('fixedCartAddress').value = '';
+
+      alert('Order sent successfully via WhatsApp and Email!');
+    },
+    function (error) {
+      console.error('EmailJS error:', error);
+      alert('Order sent to WhatsApp, but email failed.');
+    }
+  );
+}
+
+
+
+document.addEventListener('input', function (e) {
+
+  // FULL NAME — TEXT ONLY
+  if (e.target.id === 'fixedCartName') {
+    e.target.value = e.target.value.replace(/[^A-Za-z\s]/g, '');
+  }
+
+  // PHONE — NUMBERS ONLY + MIN 10
+  if (e.target.id === 'fixedCartPhone') {
+    e.target.value = e.target.value.replace(/\D/g, '');
+
+    if (e.target.value.length < 10) {
+      e.target.setCustomValidity('Phone number must be at least 10 digits');
+      e.target.style.borderColor = 'red';
+    } else {
+      e.target.setCustomValidity('');
+      e.target.style.borderColor = '';
+    }
+  }
+
+});
+
+</script>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  emailjs.init('wk4a-WKbvnZbPEDF-');
+});
+</script>
+
+<footer>
+  <p style="margin:0 0 10px 0;">
+    © 2026 DIATECH LIMITED. All Rights Reserved.
+  </p>
+  <p style="margin:0; font-size:12px; line-height:1.6; color:rgba(255,255,255,0.75); max-width:900px; margin-left:auto; margin-right:auto;">
+    <strong>Disclaimer:</strong> DIATECH LIMITED is an independent supplier of ICT, office, and automotive diagnostic solutions. 
+    We are <strong>not</strong> authorized dealers, agents, or representatives of any third-party brand, manufacturer, or trademark 
+    unless expressly stated in writing. All product names, logos, and brands referenced on this website are the property of their 
+    respective owners and are used for identification purposes only. DIATECH LIMITED disclaims any liability arising from the 
+    use, interpretation, or reliance on third-party trademarks. Nothing on this website shall be construed as creating any 
+    agency, partnership, or endorsement relationship.
+  </p>
+</footer>
+
+</body>
+</html>
