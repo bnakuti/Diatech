@@ -293,13 +293,88 @@ body.cart-open {
 /* =========================
    RESPONSIVE
    ========================= */
+/* =========================
+   RESPONSIVE
+   ========================= */
 @media (max-width: 768px) {
   nav { top: 100px; }
-  .fixed-cart-content { flex-direction: column; gap: 0.5rem; }
-  .items-column, .customer-column { width: 100%; min-height: 0; }
-  .fixed-cart-items { max-height: 35vh; }
-  .products-table, .table-scroll-container { width: 100%; max-width: 100%; overflow-x: auto; overflow-y: hidden; }
-  .products-table th:nth-child(4), .products-table td:nth-child(4) { position: static !important; right: auto !important; z-index: auto !important; }
+
+  /* Full-height cart panel that scrolls internally */
+  .fixed-cart-panel {
+    top: 90px;
+    padding: 15px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Stack columns and remove the min-width that caused overflow */
+  .fixed-cart-content {
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+
+  .items-column,
+  .customer-column {
+    width: 100%;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .items-column {
+    padding-top: 10px !important;
+  }
+
+  .customer-column {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .fixed-cart-items {
+    max-height: 30vh !important;
+  }
+
+  .cart-total-fixed {
+    padding: 10px 0;
+  }
+
+  .fixed-submit-cart {
+    padding: 15px;
+    font-size: 16px;
+  }
+
+  .products-table,
+  .table-scroll-container {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .products-table th:nth-child(4),
+  .products-table td:nth-child(4) {
+    position: static !important;
+    right: auto !important;
+    z-index: auto !important;
+    background: none !important;
+    border-left: none !important;
+  }
+
+  .search-box {
+    width: 92% !important;
+    padding: 12px 18px !important;
+    font-size: 15px !important;
+  }
+
+  main {
+    padding: 160px 15px 40px;
+  }
+
+  header h1 { font-size: 20px; }
+  header p { font-size: 13px; }
+  nav ul { flex-wrap: wrap; gap: 8px; padding: 8px; }
+  nav a { padding: 8px 12px; font-size: 14px; }
 }
 
 /* MAKE SEARCH BAR FULLY ROUNDED */
