@@ -293,15 +293,12 @@ body.cart-open {
 /* =========================
    RESPONSIVE
    ========================= */
-/* =========================
-   RESPONSIVE
-   ========================= */
 @media (max-width: 768px) {
   nav { top: 100px; }
 
   /* Full-height cart panel that scrolls internally */
   .fixed-cart-panel {
-    top: 90px;
+    top: 155px;
     padding: 15px;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -325,6 +322,19 @@ body.cart-open {
     padding-top: 10px !important;
   }
 
+  /* Stack "Order Items" heading + "Continue Shopping" button */
+  .items-column h4 {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+
+  .continue-shopping-btn {
+    width: 100% !important;
+    padding: 10px 15px !important;
+    font-size: 14px !important;
+  }
+
   .customer-column {
     padding: 15px;
     border-radius: 12px;
@@ -344,6 +354,7 @@ body.cart-open {
     font-size: 16px;
   }
 
+  /* Product table adjustments */
   .products-table,
   .table-scroll-container {
     width: 100%;
@@ -352,13 +363,48 @@ body.cart-open {
     overflow-y: hidden;
   }
 
+  /* Tighten table columns so the Add button is fully visible */
+  .products-table th:nth-child(1),
+  .products-table td:nth-child(1) { 
+    width: 30% !important; 
+    font-size: 13px !important; 
+  }
+
+  .products-table th:nth-child(2),
+  .products-table td:nth-child(2) { 
+    width: 40% !important; 
+    font-size: 13px !important;
+    white-space: normal !important;
+  }
+
+  .products-table th:nth-child(3),
+  .products-table td:nth-child(3) { 
+    width: 18% !important; 
+    font-size: 12px !important;
+  }
+
   .products-table th:nth-child(4),
   .products-table td:nth-child(4) {
+    width: 70px !important;
+    min-width: 70px !important;
+    max-width: 70px !important;
     position: static !important;
     right: auto !important;
     z-index: auto !important;
     background: none !important;
     border-left: none !important;
+    padding: 8px 4px !important;
+  }
+
+  .products-table th,
+  .products-table td {
+    padding: 10px 6px !important;
+  }
+
+  .add-cart {
+    padding: 6px 8px !important;
+    font-size: 12px !important;
+    border-radius: 8px !important;
   }
 
   .search-box {
@@ -375,16 +421,6 @@ body.cart-open {
   header p { font-size: 13px; }
   nav ul { flex-wrap: wrap; gap: 8px; padding: 8px; }
   nav a { padding: 8px 12px; font-size: 14px; }
-}
-
-/* MAKE SEARCH BAR FULLY ROUNDED */
-.search-box {
-  border-radius: 50px !important;
-}
-
-.continue-shopping-btn {
-  background: orange !important;
-  border-radius: 50px !important;
 }
 
 /* ==========================================
